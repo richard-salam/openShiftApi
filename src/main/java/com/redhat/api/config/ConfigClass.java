@@ -30,8 +30,7 @@ public class ConfigClass {
 	public DataSource getMySQLDataSource() {
 		DriverManagerDataSource driverMgrDataSource=new DriverManagerDataSource();
 		driverMgrDataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		driverMgrDataSource.setUrl("jdbc:mysql://mysql:3306/"); 
-		driverMgrDataSource.setSchema("sampledb");
+		driverMgrDataSource.setUrl("jdbc:mysql://mysql:3306/sampledb"); 
 		driverMgrDataSource.setUsername("userCWJ");
 		driverMgrDataSource.setPassword("TGYMNnYI6iohkPfF");
 		System.out.println("DataBase Connection Established");
