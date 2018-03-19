@@ -17,75 +17,89 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.stereotype.Component;
 
-
 import com.redhat.api.entity.EntityClass;
 
-
-
 @Component
-@ComponentScan(basePackages="com.redhat.api.controller")
+@ComponentScan(basePackages = "com.redhat.api.controller")
 @Configuration
 public class ConfigClass {
 
 	@Autowired
-	@Bean(name="dataSource")
+	@Bean(name = "dataSource")
 	public DataSource getMySQLDataSource() throws BeanInstantiationException, BeanDefinitionParsingException {
-		DriverManagerDataSource driverMgrDataSource=new DriverManagerDataSource();
+		DriverManagerDataSource driverMgrDataSource = new DriverManagerDataSource();
 		driverMgrDataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		driverMgrDataSource.setUrl("jdbc:mysql://mysql:3306/sampledb"); 
+		driverMgrDataSource.setUrl("jdbc:mysql://mysql:3306/sampledb");
 		driverMgrDataSource.setUsername("userCWJ");
 		driverMgrDataSource.setPassword("TGYMNnYI6iohkPfF");
 		System.out.println("DataBase Connection Established");
 		return driverMgrDataSource;
 	}
-	
-	
-/*	@Autowired
-	@Bean(name="dataSource")
-	public DataSource getMySQLDataSource() throws BeanInstantiationException, BeanDefinitionParsingException {
-		
-		DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
-		driverManagerDataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		driverManagerDataSource.setUrl("jdbc:mysql://localhost:3306/api");
-		driverManagerDataSource.setUsername("root");
-		driverManagerDataSource.setPassword("open");
-		
-		System.out.println("DataBase Connection Established");
-		
-		return driverManagerDataSource;
-	}*/
+
+	/*
+	 * @Autowired
+	 * 
+	 * @Bean(name="dataSource") public DataSource getMySQLDataSource() throws
+	 * BeanInstantiationException, BeanDefinitionParsingException {
+	 * 
+	 * DriverManagerDataSource driverManagerDataSource = new
+	 * DriverManagerDataSource();
+	 * driverManagerDataSource.setDriverClassName("com.mysql.jdbc.Driver");
+	 * driverManagerDataSource.setUrl("jdbc:mysql://localhost:3306/api");
+	 * driverManagerDataSource.setUsername("root");
+	 * driverManagerDataSource.setPassword("open");
+	 * 
+	 * System.out.println("DataBase Connection Established");
+	 * 
+	 * return driverManagerDataSource; }
+	 */
 
 	@Autowired
-	@Bean(name="sessionFactory")
-	public SessionFactory getSessionFactory() throws BeanInstantiationException, BeanDefinitionParsingException
-	{
-		Properties hibernateProperties=new Properties();
-		hibernateProperties.put("hibernate.dialect","org.hibernate.dialect.MySQLDialect");
+	@Bean(name = "sessionFactory")
+	public SessionFactory getSessionFactory() {
+
+		Properties hibernateProperties = new Properties();
+		hibernateProperties.put("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
 		hibernateProperties.setProperty("hibernate.show_sql", "true");
 		hibernateProperties.setProperty("hibernate.format_sql", "true");
-		hibernateProperties.setProperty("hibernate.hbm2ddl.auto","update");
+		hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "update");
 
-
-		
-		LocalSessionFactoryBuilder localSessionFacBuilder=new LocalSessionFactoryBuilder(getMySQLDataSource());
+		LocalSessionFactoryBuilder localSessionFacBuilder = new LocalSessionFactoryBuilder(getMySQLDataSource());
 		localSessionFacBuilder.addProperties(hibernateProperties);
-		
+
 		localSessionFacBuilder.addAnnotatedClass(EntityClass.class);
 
-		SessionFactory sessionFactory=localSessionFacBuilder.buildSessionFactory();
+		try {
+
+			SessionFactory sessionFactory = localSessionFacBuilder.buildSessionFactory();
+			return sessionFactory;
+
+		}
+
+		catch (ExceptionInInitializerError ex) {
+
+			System.out.println(ex.getMessage());
+		}
+
+		finally {
+			System.out.println("Session Factory Block Crossed");
+
+		}
+
 		System.out.println("SessionFactory  Created");
-		return sessionFactory;
+
+		return null;
 	}
-	
+
 	@Autowired
-	@Bean(name="transactionManager")
-	
-	public HibernateTransactionManager getHibernateTransactionManager(SessionFactory sessionFactory) throws BeanInstantiationException, BeanDefinitionParsingException
-	{
-		HibernateTransactionManager hibernateTranMgr=new HibernateTransactionManager(sessionFactory);
-		
+	@Bean(name = "transactionManager")
+
+	public HibernateTransactionManager getHibernateTransactionManager(SessionFactory sessionFactory)
+			throws BeanInstantiationException, BeanDefinitionParsingException {
+		HibernateTransactionManager hibernateTranMgr = new HibernateTransactionManager(sessionFactory);
+
 		System.out.println("Transaction Done");
-		
+
 		return hibernateTranMgr;
-}
+	}
 }
