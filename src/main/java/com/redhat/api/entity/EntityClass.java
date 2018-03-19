@@ -10,9 +10,9 @@ import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
 
-@Table(name="EntityClass")
+/* @Table(name="EntityClass")
 @Component
-@Entity
+@Entity */
 public class EntityClass implements Serializable {
 
 	private static final long serialVersionUID = -1241258535092105189L;
