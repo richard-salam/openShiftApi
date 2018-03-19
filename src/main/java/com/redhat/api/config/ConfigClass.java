@@ -27,9 +27,9 @@ import com.redhat.api.entity.EntityClass;
 @Configuration
 public class ConfigClass {
 
-/*	@Autowired
+	@Autowired
 	@Bean(name="dataSource")
-	public DataSource getMySQLDataSource() {
+	public DataSource getMySQLDataSource() throws BeanInstantiationException, BeanDefinitionParsingException {
 		DriverManagerDataSource driverMgrDataSource=new DriverManagerDataSource();
 		driverMgrDataSource.setDriverClassName("com.mysql.jdbc.Driver");
 		driverMgrDataSource.setUrl("jdbc:mysql://mysql:3306/sampledb"); 
@@ -37,10 +37,10 @@ public class ConfigClass {
 		driverMgrDataSource.setPassword("TGYMNnYI6iohkPfF");
 		System.out.println("DataBase Connection Established");
 		return driverMgrDataSource;
-	}*/
+	}
 	
 	
-	@Autowired
+/*	@Autowired
 	@Bean(name="dataSource")
 	public DataSource getMySQLDataSource() throws BeanInstantiationException, BeanDefinitionParsingException {
 		
@@ -53,7 +53,7 @@ public class ConfigClass {
 		System.out.println("DataBase Connection Established");
 		
 		return driverManagerDataSource;
-	}
+	}*/
 
 	@Autowired
 	@Bean(name="sessionFactory")
