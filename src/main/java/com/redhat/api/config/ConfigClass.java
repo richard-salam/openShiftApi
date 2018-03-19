@@ -21,7 +21,7 @@ import com.redhat.api.entity.EntityClass;
 
 
 @Component
-@ComponentScan(basePackages="com.redhat.api")
+@ComponentScan(basePackages="com.redhat.api.controller")
 @Configuration
 public class ConfigClass {
 
@@ -37,7 +37,8 @@ public class ConfigClass {
 		return driverMgrDataSource;
 	}
 	
-/*	@Autowired
+	
+	/*@Autowired
 	@Bean(name="dataSource")
 	public DataSource getMySQLDataSource() {
 		
@@ -50,8 +51,8 @@ public class ConfigClass {
 		System.out.println("DataBase Connection Established");
 		
 		return driverManagerDataSource;
-	}*/
-
+	}
+*/
 	@Autowired
 	@Bean(name="sessionFactory")
 	public SessionFactory getSessionFactory()
