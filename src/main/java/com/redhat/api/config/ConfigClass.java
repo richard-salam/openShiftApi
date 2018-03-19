@@ -20,9 +20,9 @@ import com.redhat.api.entity.EntityClass;
 
 
 
-@Component
+/* @Component
 @ComponentScan(basePackages="com.redhat.api")
-@Configuration
+@Configuration */
 public class ConfigClass {
 
 	@Autowired
