@@ -28,7 +28,7 @@ public class ConfigClass {
 	@Bean(name = "dataSource")
 	public DataSource getMySQLDataSource() throws BeanInstantiationException, BeanDefinitionParsingException {
 		DriverManagerDataSource driverMgrDataSource = new DriverManagerDataSource();
-		driverMgrDataSource.setDriverClassName("com.mysql.jdbc.Driver");
+		driverMgrDataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
 		driverMgrDataSource.setUrl("jdbc:mysql://mysql:3306/sampledb");
 		driverMgrDataSource.setUsername("userCWJ");
 		driverMgrDataSource.setPassword("TGYMNnYI6iohkPfF");
