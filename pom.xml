@@ -43,18 +43,18 @@
 </dependency>
 
     <!-- https://mvnrepository.com/artifact/org.springframework/spring-orm -->
-<!-- <dependency>
+ <dependency>
     <groupId>org.springframework</groupId>
     <artifactId>spring-orm</artifactId>
     <version>4.3.12.RELEASE</version>
-</dependency> -->
+</dependency> 
     
     <!-- https://mvnrepository.com/artifact/org.springframework/spring-tx -->
-<!--<dependency>
+<dependency>
     <groupId>org.springframework</groupId>
     <artifactId>spring-tx</artifactId>
     <version>4.3.12.RELEASE</version>
-</dependency> -->
+</dependency> 
 
 <!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
 <!--<dependency>
@@ -66,46 +66,46 @@
  
 <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java
  -->
- <!-- <dependency>
+ <dependency>
     <groupId>mysql</groupId>
     <artifactId>mysql-connector-java</artifactId>
     <version>6.0.6</version>
-</dependency> -->
+</dependency> 
 
  
     <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
-<!-- <dependency>
+ <dependency>
     <groupId>org.hibernate</groupId>
     <artifactId>hibernate-core</artifactId>
     <version>5.2.5.Final</version>
-</dependency> -->
+</dependency> 
     <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-validator -->
-<!--<dependency>
+<dependency>
     <groupId>org.hibernate</groupId>
     <artifactId>hibernate-validator</artifactId>
     <version>5.3.4.Final</version>
-</dependency> -->
+</dependency> 
     <!-- https://mvnrepository.com/artifact/org.hibernate.javax.persistence/hibernate-jpa-2.1-api -->
-<!-- <dependency>
+ <dependency>
     <groupId>org.hibernate.javax.persistence</groupId>
     <artifactId>hibernate-jpa-2.1-api</artifactId>
     <version>1.0.0.Final</version>
-</dependency> -->
+</dependency> 
 
 <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-c3p0 -->
-<!-- <dependency>
+ <dependency>
     <groupId>org.hibernate</groupId>
     <artifactId>hibernate-c3p0</artifactId>
     <version>4.3.11.Final</version>
-</dependency> -->
+</dependency> 
 
 
     <!-- https://mvnrepository.com/artifact/commons-dbcp/commons-dbcp -->
-<!-- <dependency>
+ <dependency>
     <groupId>commons-dbcp</groupId>
     <artifactId>commons-dbcp</artifactId>
     <version>1.4</version>
-</dependency> --> 
+</dependency> 
 
 <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
 <!-- <dependency>
