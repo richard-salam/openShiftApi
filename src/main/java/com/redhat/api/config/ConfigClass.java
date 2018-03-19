@@ -36,6 +36,21 @@ public class ConfigClass {
 		System.out.println("DataBase Connection Established");
 		return driverMgrDataSource;
 	}
+	
+/*	@Autowired
+	@Bean(name="dataSource")
+	public DataSource getMySQLDataSource() {
+		
+		DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
+		driverManagerDataSource.setDriverClassName("com.mysql.jdbc.Driver");
+		driverManagerDataSource.setUrl("jdbc:mysql://localhost:3306/api");
+		driverManagerDataSource.setUsername("root");
+		driverManagerDataSource.setPassword("open");
+		
+		System.out.println("DataBase Connection Established");
+		
+		return driverManagerDataSource;
+	}*/
 
 	@Autowired
 	@Bean(name="sessionFactory")
