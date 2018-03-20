@@ -10,12 +10,23 @@ import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
 
-@Table(name="EntityClass")
+@Table(name = "EntityClass")
 @Component
 @Entity
 public class EntityClass implements Serializable {
 
 	private static final long serialVersionUID = -1241258535092105189L;
+
+	public EntityClass() {
+	} /* Constructor */
+
+	public EntityClass(int id, String name, String job) {
+
+		this.id = id;
+		this.name = name;
+		this.job = job;
+
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
