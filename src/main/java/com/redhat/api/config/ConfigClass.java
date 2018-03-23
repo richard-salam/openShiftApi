@@ -26,36 +26,35 @@ import com.redhat.api.entity.EntityClass;
 @EnableTransactionManagement
 public class ConfigClass {
 
-	@Bean(name = "dataSource")
+	
+	  @Bean(name = "dataSource") public DataSource getMySQLDataSource() throws
+	  BeanInstantiationException, BeanDefinitionParsingException {
+	  
+	  DriverManagerDataSource driverMgrDataSource = new DriverManagerDataSource();
+	  driverMgrDataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+	  driverMgrDataSource.setUrl("jdbc:mysql://mysql:3306/sampledb");
+	  driverMgrDataSource.setUsername("userCWJ");
+	  driverMgrDataSource.setPassword("TGYMNnYI6iohkPfF");
+	  
+	  System.out.println("DataBase Connection Established");
+	  
+	  return driverMgrDataSource; }
+	 
+
+	/*@Bean(name = "dataSource")
 	public DataSource getMySQLDataSource() throws BeanInstantiationException, BeanDefinitionParsingException {
 
-		DriverManagerDataSource driverMgrDataSource = new DriverManagerDataSource();
-		driverMgrDataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-		driverMgrDataSource.setUrl("jdbc:mysql://mysql:3306/sampledb");
-		driverMgrDataSource.setUsername("userCWJ");
-		driverMgrDataSource.setPassword("TGYMNnYI6iohkPfF");
+		DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
+		driverManagerDataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+		driverManagerDataSource.setUrl("jdbc:mysql://localhost:3306/api");
+		driverManagerDataSource.setUsername("root");
+		driverManagerDataSource.setPassword("open");
 
 		System.out.println("DataBase Connection Established");
 
-		return driverMgrDataSource;
+		return driverManagerDataSource;
 	}
-
-	/*
-	 * @Bean(name = "dataSource") public DataSource getMySQLDataSource() throws
-	 * BeanInstantiationException, BeanDefinitionParsingException {
-	 * 
-	 * DriverManagerDataSource driverManagerDataSource = new
-	 * DriverManagerDataSource();
-	 * driverManagerDataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-	 * driverManagerDataSource.setUrl("jdbc:mysql://localhost:3306/api");
-	 * driverManagerDataSource.setUsername("root");
-	 * driverManagerDataSource.setPassword("open");
-	 * 
-	 * System.out.println("DataBase Connection Established");
-	 * 
-	 * return driverManagerDataSource; }
-	 */
-
+*/
 	@Autowired
 	@Bean(name = "sessionFactory")
 	public SessionFactory getSessionFactory() {
@@ -63,9 +62,8 @@ public class ConfigClass {
 		Properties hibernateProperties = new Properties();
 		hibernateProperties.put("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
 		hibernateProperties.setProperty("hibernate.show_sql", "true");
-		/*
-		 * hibernateProperties.setProperty("hibernate.format_sql", "true");
-		 */ hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "update");
+		hibernateProperties.setProperty("hibernate.format_sql", "true");
+		hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "update");
 
 		LocalSessionFactoryBuilder localSessionFacBuilder = new LocalSessionFactoryBuilder(getMySQLDataSource());
 		localSessionFacBuilder.addProperties(hibernateProperties);
